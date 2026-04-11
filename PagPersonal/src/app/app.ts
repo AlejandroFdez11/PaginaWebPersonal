@@ -5,13 +5,16 @@ import * as AOS from 'aos';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { HomeComponent } from "./pag/home-component/home-component";
 
 @Component({
   selector: 'app-root',
   imports: [
     MatToolbarModule,
     MatButtonModule,
-    MatCardModule, ],
+    MatCardModule,
+    HomeComponent
+],
   templateUrl: './app.html',
   styleUrls: ['./app.css']
 })
