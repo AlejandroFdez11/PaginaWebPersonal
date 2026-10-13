@@ -61,7 +61,7 @@ img { max-width: 100%; display: block; }
 }
 
 .navbar-logo .logo-img {
-  height: 34px;
+  height: 10px;
   width: auto;
   display: block;
   transition: opacity var(--transition);
