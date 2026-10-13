@@ -60,6 +60,8 @@ img { max-width: 100%; display: block; }
   border-bottom: 1px solid var(--iron);
 }
 
+.logo-img { height: 34px; width: auto; display: block; }
+
 .navbar-logo .logo-img {
   height: 10px;
   width: auto;
