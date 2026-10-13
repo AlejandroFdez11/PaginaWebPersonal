@@ -15,6 +15,9 @@
           "options": {
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
+            "assets": [
+              {"glob": "**/*", "input": "public"}
+            ],
             "styles": [
               "node_modules/aos/dist/aos.css",
               "src/custom-theme.scss",
