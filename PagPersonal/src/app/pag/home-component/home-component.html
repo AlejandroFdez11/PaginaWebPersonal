@@ -1,17 +1,34 @@
-<!--Barra de Navegación-->
-<header class="navbar" data-aos="fade-down">
-  <div>
+<!-- Barra de navegación: compacta, con ocultación al bajar y menú móvil -->
+<header
+  class="navbar"
+  [class.navbar-hidden]="isNavHidden"
+  [class.navbar-scrolled]="isScrolled"
+  data-aos="fade-down"
+>
+  <a class="navbar-logo" href="#inicio" aria-label="Ir al inicio" (click)="closeMobileMenu()">
     <img src="/assets/logo_icon_blanco.png" alt="Alejandro Fernández" class="logo-img" />
-  </div>
+  </a>
 
-  <nav class="navbar-links">
-    <a href="#sobre-mi" class="nav-link">Sobre mí</a>
-    <a href="#especialidades" class="nav-link">Experiencia</a>
-    <a href="#titulos" class="nav-link">Títulos y Certificados</a>
-    <a href="#proyectos" class="nav-link">Proyectos</a>
+  <nav class="navbar-links" aria-label="Navegación principal" [class.mobile-open]="isMobileMenuOpen">
+    <a href="#sobre-mi" class="nav-link" (click)="closeMobileMenu()">Sobre mí</a>
+    <a href="#especialidades" class="nav-link" (click)="closeMobileMenu()">Experiencia</a>
+    <a href="#titulos" class="nav-link" (click)="closeMobileMenu()">Títulos y Certificados</a>
+    <a href="#proyectos" class="nav-link" (click)="closeMobileMenu()">Proyectos</a>
+    <a href="#contacto" class="nav-link mobile-contact-link" (click)="closeMobileMenu()">Contacto</a>
   </nav>
-  <button class="nav-cta" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">
-    Contacto
+
+  <a class="nav-cta" href="#contacto">Contacto</a>
+
+  <button
+    class="nav-menu-toggle"
+    type="button"
+    [attr.aria-expanded]="isMobileMenuOpen"
+    aria-label="Abrir o cerrar el menú de navegación"
+    (click)="toggleMobileMenu()"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
   </button>
 </header>
 
@@ -23,10 +40,10 @@
     <h1 class="hero-title">Alejandro<br><span class="hero-accent">Fernández Franco</span></h1>
     <p class="hero-subtitle">Desarrollador · Diseñador · Creador de soluciones digitales</p>
     <div class="hero-actions">
-      <button class="btn-primary" onclick="document.getElementById('proyectos').scrollIntoView({behavior:'smooth'})">
+      <button class="btn-primary" type="button" (click)="scrollToSection('proyectos')">
         Ver proyectos
       </button>
-      <button class="btn-secondary" onclick="document.getElementById('sobre-mi').scrollIntoView({behavior:'smooth'})">
+      <button class="btn-secondary" type="button" (click)="scrollToSection('sobre-mi')">
         Sobre mí
       </button>
     </div>
@@ -82,21 +99,18 @@
   <div class="section-inner">
     <h2 class="section-title light" data-aos="fade-up" data-aos-delay="100">Experiencia</h2>
     <div class="cards-grid">
- 
       <div class="spec-card" data-aos="fade-up" data-aos-delay="100">
         <h3>Desarrollador en Practicas - ControlNet</h3>
         <h4>Marzo 2025 - Junio 2025</h4>
         <p>Participación en el desarrollo de aplicaciones web con Blazor y MudBlazor</p>
         <p>Desarrollo y mantenimiento de bases de datos con MYSQL</p>
       </div>
- 
       <div class="spec-card" data-aos="fade-up" data-aos-delay="200">
         <h3>Desarrollador en Practicas - Master Distancia SAU</h3>
         <h4>Marzo 2026 - Junio 2026</h4>
         <p>Implemetación de la página de detalles de testimonios para SerFP(Portal colaborativo para estudiantes de FP)</p>
         <p>Integración de feed de noticias vía RSS</p>
       </div>
- 
     </div>
   </div>
 </section>
@@ -107,7 +121,6 @@
     <div class="section-label" data-aos="fade-up">Formación</div>
     <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Títulos</h2>
     <div class="timeline">
- 
       <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
         <div class="timeline-dot"></div>
         <div class="timeline-content">
@@ -117,7 +130,6 @@
           <p>Técnico en Sistemas Microinformáticos y Redes</p>
         </div>
       </div>
- 
       <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
         <div class="timeline-dot"></div>
         <div class="timeline-content">
@@ -127,7 +139,6 @@
           <p>Desarrollo de aplicaciones multiplataforma.</p>
         </div>
       </div>
- 
       <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
         <div class="timeline-dot"></div>
         <div class="timeline-content">
@@ -137,7 +148,6 @@
           <p>Desarrollo de aplicaciones Web.</p>
         </div>
       </div>
- 
     </div>
   </div>
 </section>
@@ -148,7 +158,6 @@
     <div class="section-label light" data-aos="fade-up">Portfolio</div>
     <h2 class="section-title light" data-aos="fade-up" data-aos-delay="100">Proyectos</h2>
     <div class="projects-grid">
-
       <article class="project-card" data-aos="fade-up" data-aos-delay="100">
         <img class="project-img" src="/assets/proyects/moodify.webp" alt="Captura de Moodify" loading="lazy" />
         <div class="project-body">
@@ -159,7 +168,6 @@
           <a class="project-link" href="https://github.com/AlejandroFdez11" target="_blank" rel="noopener">Ver código →</a>
         </div>
       </article>
-
       <article class="project-card" data-aos="fade-up" data-aos-delay="200">
         <img class="project-img" src="/assets/proyects/domainfinder.webp" alt="Captura de DomainFinder" loading="lazy" />
         <div class="project-body">
@@ -170,7 +178,6 @@
           <a class="project-link" href="https://github.com/AlejandroFdez11" target="_blank" rel="noopener">Ver código →</a>
         </div>
       </article>
-
       <article class="project-card" data-aos="fade-up" data-aos-delay="300">
         <div class="project-body">
           <div class="project-tag">Web</div>
@@ -180,7 +187,6 @@
           <a class="project-link" href="https://github.com/AlejandroFdez11/PaginaWebPersonal" target="_blank" rel="noopener">Ver código →</a>
         </div>
       </article>
-
       <article class="project-card" data-aos="fade-up" data-aos-delay="300">
         <img class="project-img" src="/assets/proyects/SerFP.png" alt="Captura de SerFP" loading="lazy" />
         <div class="project-body">
@@ -191,7 +197,6 @@
           <a class="project-link" href="https://www.serfp.es/" target="_blank" rel="noopener">Ver Sitio →</a>
         </div>
       </article>
-
     </div>
   </div>
 </section>
