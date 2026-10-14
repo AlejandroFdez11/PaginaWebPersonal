@@ -1,7 +1,7 @@
 [build]
   base = "PagPersonal"
   command = "npm run build"
-  publish = "PagPersonal/dist/PagPersonal/browser"
+  publish = "/dist/PagPersonal/browser"
 
 [build.environment]
   NODE_VERSION = "22"
